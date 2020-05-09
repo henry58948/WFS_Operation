@@ -287,7 +287,7 @@ function delFeature(){
   if(selectedFeature){
     var WFSTSerializer = new WFS();
     var featObject = WFSTSerializer.writeTransaction(null, null, [selectedFeature], {
-      featureNS: 'http://localhost/map',
+      featureNS: 'http://192.168.50.88/map',
       featureType: "river5_polyline"
     });
     var serializer = new XMLSerializer();
@@ -306,13 +306,13 @@ drawLine.on("drawend", function (e) {
   var feature = e.feature;
   var newFeature = new Feature({
     "geom": new MultiLineString([feature.getGeometry().getCoordinates()]),
-    "name": "新建2",
+    "name": "新建33",
     "level": 55
   })
   var WFSTSerializer = new WFS();
   var featObject = WFSTSerializer.writeTransaction([newFeature],
     null, null, {
-    featureNS: 'http://localhost/map',
+    featureNS: 'http://192.168.50.88/map',
     featureType: "river5_polyline",
     //srsName: 'EPSG:4326'
   });
@@ -342,7 +342,7 @@ modifyLine.on("modifyend", function (e) {
     modifyFeature.setGeometryName("geom");
     var WFSTSerializer = new WFS();
     var featObject = WFSTSerializer.writeTransaction(null, [modifyFeature], null, {
-      featureNS: 'http://localhost/map',
+      featureNS: 'http://192.168.50.88/map',
       featureType: "river5_polyline"
     });
     var serializer = new XMLSerializer();
